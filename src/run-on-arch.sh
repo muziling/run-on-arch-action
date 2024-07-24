@@ -99,6 +99,7 @@ run_container () {
   docker run \
     --workdir "${GITHUB_WORKSPACE}" \
     --rm \
+    --attach stdout \
     -e DEBIAN_FRONTEND=noninteractive \
     -e CI \
     -e GITHUB_ACTION \
