@@ -1,4 +1,6 @@
 FROM arm64v8/centos:8
 
+RUN sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo; sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo; sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
+
 COPY ./run-on-arch-install.sh /root/run-on-arch-install.sh
 RUN chmod +x /root/run-on-arch-install.sh && /root/run-on-arch-install.sh
