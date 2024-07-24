@@ -1,0 +1,7 @@
+FROM arm64v8/centos:7
+
+# RHEL 7 has reached EOL. The following line makes it work:
+RUN sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo; sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo
+
+COPY ./run-on-arch-install.sh /root/run-on-arch-install.sh
+RUN chmod +x /root/run-on-arch-install.sh && /root/run-on-arch-install.sh
