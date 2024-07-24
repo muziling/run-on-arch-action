@@ -100,6 +100,7 @@ run_container () {
     --workdir "${GITHUB_WORKSPACE}" \
     --rm \
     --attach stdout \
+    --attach stderr \
     -e DEBIAN_FRONTEND=noninteractive \
     -e CI \
     -e GITHUB_ACTION \
